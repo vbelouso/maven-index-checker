@@ -3,7 +3,30 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+    <properties>
+        <log4j.version>2.17.1</log4j.version>
+        <plexus-utils.version>3.0.24</plexus-utils.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.plexus</groupId>
+                <artifactId>plexus-utils</artifactId>
+                <version>${plexus-utils.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <repositories>
+        <repository>
+            <id>mvnrepository</id>
+            <url>https://mvnrepository.com/artifact/</url>
+        </repository>
+    </repositories>
     <groupId>com.redhat.maven.index.checker</groupId>
     <artifactId>maven-index-checker</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -43,7 +66,6 @@
             <artifactId>sqljet</artifactId>
             <version>1.1.10</version>
         </dependency>
-
         <!-- For ResourceFetcher implementation, if used -->
         <dependency>
             <groupId>org.apache.maven.wagon</groupId>
@@ -51,8 +73,15 @@
             <version>2.3</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-utils</artifactId>
+        </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
